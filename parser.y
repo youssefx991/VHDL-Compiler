@@ -12,16 +12,20 @@
  int signal_count = 0;
  char* entity_name = NULL;
 
- void yerror(const char* s);
+ void yerror(char* s);
+ int yylex();
  int is_valid_identifier(char* identifier);
  int is_signal_exist(char* signal_name);
  void handle_assignment(char* lhs, char* rhs);
 %}
 
 
-// Tokens
+%union {char* str;}
+
 %start program
-%token ENTITY IDENTIFIER IS END SEMICOLON ARCHITECTURE OF SIGNAL COLON TYPE T_BEGIN OP_ASSIGN
+
+%token ENTITY IS END SEMICOLON ARCHITECTURE OF SIGNAL COLON TYPE T_BEGIN OP_ASSIGN
+%token <str> IDENTIFIER
 
 
 %%
@@ -98,7 +102,7 @@ assignment_statement : IDENTIFIER OP_ASSIGN IDENTIFIER{
 
 %%
 
-void yyerror(const char* s)
+void yyerror(char* s)
 {
 	fprintf(stderr, "Error: %s\n", s);
 }
