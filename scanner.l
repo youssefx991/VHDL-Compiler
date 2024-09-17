@@ -14,7 +14,12 @@
 "is"			return IS;
 "signal"		return SIGNAL;
 "of"			return OF;
-"type"			{yylval.str = strdup(yytext); return TYPE;}
+"bit" 			|
+"std_logic" 		|
+"integer" 		|
+"real" 			|
+"boolean" 		|
+"NULL" 			{yylval.str = strdup(yytext); return TYPE;}
 "<="			return OP_ASSIGN;
 
 ";"			return SEMICOLON;

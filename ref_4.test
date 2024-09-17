@@ -2,8 +2,7 @@ eNtity ent is
 END;
 
 architecture arch of ent is
-    signal sig1 : type;
-    signal sig2 : type;
+	signal a : bit;
 begin
 end;
 

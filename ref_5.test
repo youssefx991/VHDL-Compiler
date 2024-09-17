@@ -2,8 +2,8 @@ eNtity ent is
 END;
 
 architecture arch of ent is
-    signal sig1 : type;
-    signal sig2 : type;
+    signal sig1 : std_logic;
+    signal sig2 : std_logic;
 begin
     sig1 <= sig2;
     sig2 <= sig1;

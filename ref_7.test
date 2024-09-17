@@ -1,0 +1,9 @@
+eNtity ent is
+END;
+
+architecture arch of ent is
+	signal s11 : bit;
+begin
+	s11 <= s_unknown1;
+	s_unknown2 <= s11;
+end;
