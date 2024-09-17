@@ -1,0 +1,6 @@
+EnTity ent is 
+end;
+
+Architecture arch of ent is 
+begin
+EnD;

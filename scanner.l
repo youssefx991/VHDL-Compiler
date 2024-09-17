@@ -23,8 +23,7 @@
 [_a-zA-Z][_a-zA-Z0-9]*	{yylval.str = strdup(yytext); return IDENTIFIER;}
 
 [ \t\n]			;
-
-.			{ECHO; yyerror("unexpected cahracter"); }
+.			{printf("unexpected character %s in line %d\n", yytext, yylineno); exit(1);}  
 %%
 
 int yywrap()

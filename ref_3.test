@@ -1,0 +1,7 @@
+ENTITY @123 Is 
+END;
+
+ARCHITECTURE arch OF xyz IS
+BEGIN
+END;
+

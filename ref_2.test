@@ -5,3 +5,5 @@ ARCHITECTURE arch OF ent IS
 BEGIN
 END;
 
+entity ent_2 is
+end;

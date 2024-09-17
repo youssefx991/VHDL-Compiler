@@ -1,5 +1,5 @@
 app : lex.yy.c y.tab.c
-	gcc lex.yy.c y.tab.c -ll -o app
+	gcc lex.yy.c y.tab.c scanner.c  -o app
 lex.yy.c : y.tab.c scanner.l
 	lex -i scanner.l
 y.tab.c : parser.y
