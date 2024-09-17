@@ -1,0 +1,7 @@
+ENTITY ent IS 
+END;
+
+ARCHITECTURE arch OF ent IS
+BEGIN
+END;
+

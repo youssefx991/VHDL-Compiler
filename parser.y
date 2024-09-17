@@ -31,7 +31,7 @@
 
 %%
 
-program : entity_statement architecture_statement { printf("Program Parsed Successfully"); }
+program : entity_statement architecture_statement { printf("Program Parsed Successfully\n"); }
 	;
 
 entity_statement : ENTITY IDENTIFIER IS END SEMICOLON {

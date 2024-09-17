@@ -14,13 +14,13 @@
 "is"			return IS;
 "signal"		return SIGNAL;
 "of"			return OF;
-"type"			{yylval.str = yytext; return TYPE;}
+"type"			{yylval.str = strdup(yytext); return TYPE;}
 "<="			return OP_ASSIGN;
 
 ";"			return SEMICOLON;
 ":"			return COLON;
 
-[_a-zA-Z][_a-zA-Z0-9]*	{yylval.str = yytext; return IDENTIFIER;}
+[_a-zA-Z][_a-zA-Z0-9]*	{yylval.str = strdup(yytext); return IDENTIFIER;}
 
 [ \t\n]			;
 
