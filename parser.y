@@ -32,7 +32,7 @@
 %%
 
 program : entity_statement architecture_statement  program { printf("Program pair Parsed Successfully\n"); }
-	| /* empty pair */		          { printf("Empty program pair parsed successfully\n"); }
+	| /* empty pair */		          //{ printf("Empty program pair parsed successfully\n"); }
 	;
 
 entity_statement : ENTITY IDENTIFIER IS END SEMICOLON {
@@ -43,7 +43,7 @@ entity_statement : ENTITY IDENTIFIER IS END SEMICOLON {
 			}
 			
 		 	entity_name = strdup($2);
-			printf("Entity : %s\n", $2);
+			//printf("Entity : %s\n", $2);
 		 }
 		 ;
 
@@ -61,12 +61,12 @@ architecture_statement : ARCHITECTURE IDENTIFIER OF IDENTIFIER IS signal_declara
 		exit(1);
 	}
 	
-	printf("Architecture : %s\n", $2);
+	//printf("Architecture : %s\n", $2);
 	
 }
 ;
 
-signal_declaration : /* Empty Signal */  {printf("Empty signal decl\n");}
+signal_declaration : /* Empty Signal */  //{printf("Empty signal decl\n");}
 
 		   | SIGNAL IDENTIFIER COLON TYPE SEMICOLON signal_declaration
 		   {
@@ -85,7 +85,7 @@ signal_declaration : /* Empty Signal */  {printf("Empty signal decl\n");}
 			signals[signal_count].type = strdup($4);
 			signal_count++;
 
-			printf("Signal : %s of type %s\n", $2, $4);
+			//printf("Signal : %s of type %s\n", $2, $4);
 
 		   }
 ;
@@ -167,7 +167,7 @@ void handle_assignment(char* lhs, char* rhs)
 		exit(1);
 	}
 
-	printf("Assignment: %s <= %s\n", lhs, rhs);
+	//printf("Assignment: %s <= %s\n", lhs, rhs);
 }
 
 int main(void)
