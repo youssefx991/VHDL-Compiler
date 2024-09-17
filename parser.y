@@ -92,15 +92,12 @@ signal_declaration : /* Empty Signal */  //{printf("Empty signal decl\n");}
 
 
 
-signal_statement : /* empty statement */ | assignment_statement
+signal_statement : /* empty statement */ | assignment_statement signal_statement
 		 ;
 
-assignment_statement : IDENTIFIER OP_ASSIGN IDENTIFIER SEMICOLON assignment_statement{
+assignment_statement : IDENTIFIER OP_ASSIGN IDENTIFIER SEMICOLON{
 		     	handle_assignment($1, $3);
 		     }
-		     |
-
-		     /*empty*/
 		     ;
 
 

@@ -14,6 +14,7 @@ eNtity a is
 END;
 
 architecture b of a is
+	Signal ss : Null;
 begin
 end;
 
