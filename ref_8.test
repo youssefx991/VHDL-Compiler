@@ -1,0 +1,9 @@
+entity ent is 
+end;
+
+architecture arch of ent is
+	signal s11 : bit;
+	signal s12 : std_logic;
+begin
+	s11 <= s12;
+end;
