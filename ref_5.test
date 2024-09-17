@@ -1,0 +1,19 @@
+eNtity ent is
+END;
+
+architecture arch of ent is
+    signal sig1 : type;
+    signal sig2 : type;
+begin
+    sig1 <= sig2;
+    sig2 <= sig1;
+end;
+
+
+eNtity a is
+END;
+
+architecture b of a is
+begin
+end;
+
