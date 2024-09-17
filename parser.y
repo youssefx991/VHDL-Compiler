@@ -2,6 +2,7 @@
  #include <stdio.h>
  #include <string.h>
  #include <stdlib.h>
+ #include <ctype.h>
 
  typedef struct {
  	char* name;
@@ -12,7 +13,7 @@
  int signal_count = 0;
  char* entity_name = NULL;
 
- void yerror(char* s);
+ void yyerror(const char* s);
  int yylex();
  int is_valid_identifier(char* identifier);
  int is_signal_exist(char* signal_name);
@@ -24,8 +25,8 @@
 
 %start program
 
-%token ENTITY IS END SEMICOLON ARCHITECTURE OF SIGNAL COLON TYPE T_BEGIN OP_ASSIGN
-%token <str> IDENTIFIER
+%token ENTITY IS END SEMICOLON ARCHITECTURE OF SIGNAL COLON T_BEGIN OP_ASSIGN
+%token <str> IDENTIFIER TYPE
 
 
 %%
@@ -49,7 +50,7 @@ architecture_statement : ARCHITECTURE IDENTIFIER OF IDENTIFIER IS signal_declara
 {
 	if (strcmp(entity_name, $4) != 0)
 	{
-		fprintf(stderr, "Error: %s does not match the declared entity name %S\n", $4, entyty_name);
+		fprintf(stderr, "Error: %s does not match the declared entity name %s\n", $4, entity_name);
 		exit(1);
 	}
 	
@@ -102,7 +103,7 @@ assignment_statement : IDENTIFIER OP_ASSIGN IDENTIFIER{
 
 %%
 
-void yyerror(char* s)
+void yyerror(const char* s)
 {
 	fprintf(stderr, "Error: %s\n", s);
 }
@@ -133,7 +134,7 @@ void handle_assignment(char* lhs, char* rhs)
 
 	for (int i=0; i<signal_count; i++)
 	{
-	i	if (strcmp(signals[i].name, lhs) == 0)
+		if (strcmp(signals[i].name, lhs) == 0)
 			lhs_type = signals[i].type;
 		if (strcmp(signals[i].name, rhs) == 0)
 			rhs_type = signals[i].type;

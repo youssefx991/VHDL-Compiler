@@ -1,7 +1,7 @@
 
 %{
  #include "y.tab.h"
- void yyerror(char* s);
+// void yyerror(char* s);
  int yylex();
 %}
 
