@@ -66,7 +66,9 @@ architecture_statement : ARCHITECTURE IDENTIFIER OF IDENTIFIER IS signal_declara
 }
 ;
 
-signal_declaration : /* Empty Signal */ | SIGNAL IDENTIFIER COLON TYPE SEMICOLON signal_declaration
+signal_declaration : /* Empty Signal */  {printf("Empty signal decl\n");}
+
+		   | SIGNAL IDENTIFIER COLON TYPE SEMICOLON signal_declaration
 		   {
 			if (! is_valid_identifier($2))
                         {

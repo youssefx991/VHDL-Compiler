@@ -1,17 +1,17 @@
-EnTity ent is
+eNtity ent is
+END;
+
+architecture arch of ent is
+    signal sig1 : type;
+    signal sig2 : type;
+begin
 end;
 
-Architecture arch of ent is
+
+eNtity a is
+END;
+
+architecture b of a is
 begin
-
-
-
-EnD;
-
-
-EnTity a is
 end;
 
-Architecture b of a is
-begin
-EnD;
