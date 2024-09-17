@@ -1,5 +1,7 @@
+
 %{
- #include "scanner.h"
+ #include "y.tab.h"
+
 %}
 
 %%
@@ -10,18 +12,17 @@
 "end"			return END;
 "is"			return IS;
 "signal"		return SIGNAL;
-"process"		return PROCESS;
 "of"			return OF;
-
+"type"			return TYPE;
 "<="			return OP_ASSIGN;
 
 ";"			return SEMICOLON;
 ":"			return COLON;
 
-[_a-zA-Z][_a-zA-Z0-9]*	return IDENTIFIER;
-[1-9][0-9]*		return NUMBER;
+[_a-zA-Z][_a-zA-Z0-9]*	{return IDENTIFIER;}
 
 [ \t\n]			;
+.			printf("Unexpected Input");
 
 %%
 
@@ -29,3 +30,4 @@ int yywrap()
 {
 	return 1;
 }
+
