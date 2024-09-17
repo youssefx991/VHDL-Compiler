@@ -1,7 +1,7 @@
 
 %{
  #include "y.tab.h"
-// void yyerror(char* s);
+ void yyerror(char* s);
  int yylex();
 %}
 
@@ -23,8 +23,8 @@
 [_a-zA-Z][_a-zA-Z0-9]*	{return IDENTIFIER;}
 
 [ \t\n]			;
-.			printf("Unexpected Input");
 
+.			{ECHO; yyerror("unexpected cahracter"); }
 %%
 
 int yywrap()

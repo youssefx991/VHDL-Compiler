@@ -13,7 +13,7 @@
  int signal_count = 0;
  char* entity_name = NULL;
 
- void yyerror(const char* s);
+ void yyerror(char* s);
  int yylex();
  int is_valid_identifier(char* identifier);
  int is_signal_exist(char* signal_name);
@@ -103,7 +103,7 @@ assignment_statement : IDENTIFIER OP_ASSIGN IDENTIFIER{
 
 %%
 
-void yyerror(const char* s)
+void yyerror(char* s)
 {
 	fprintf(stderr, "Error: %s\n", s);
 }
